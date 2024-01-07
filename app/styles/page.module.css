@@ -1,0 +1,68 @@
+.main {
+  display: flex;
+  /* flex-direction: column; */
+  /* justify-content: space-between; */
+  /* align-items: center; */
+  /* padding: 6rem; */
+  min-height: 100vh;
+}
+
+.home {
+  display: flex;
+  margin: .4rem !important;
+  padding: 1rem;
+  background-color: rgb(236, 170, 238);
+  flex-grow: 1;
+  width: 10px;
+  border-radius: 1rem;
+  border: solid 1px rgb(150, 108, 151);
+  box-shadow: 0rem 0rem .1rem 0rem rgb(21, 6, 24);
+}
+.home > * {height: min-content;}
+
+.button {
+  padding: 1rem;
+  background-color: rgb(109, 41, 105);
+  color: aliceblue;
+  border-radius: 1rem;
+  font-weight: bold;
+  font-size: 24px;
+  user-select: none;
+  cursor: pointer;
+}
+.button:hover {
+  transform: scale(1.1);
+  filter: brightness(90%);
+}
+.button:active {
+  transform: scale(1);
+  filter: brightness(100%);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: antiquewhite;
+}
+.card > form {
+  display: flex;
+  flex-direction: column;
+  gap: .2rem;
+  font-size: large;
+}
+.card > form > input {
+  border: none;
+  border-radius: 1rem;
+  height: 2rem;
+  font-size: 24px;
+}
+.card > form > input[type="submit"] {
+  background-color: rgb(141, 250, 141);
+  margin-top: 1rem;
+}
+.card > h1 {
+  flex-grow: 1;
+  margin-bottom: 1rem;
+}
