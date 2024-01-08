@@ -1,23 +1,54 @@
-import React from 'react'
+"use client"
+
+import React, { useEffect, useState } from 'react'
 import { FormEvent } from 'react'
+import Alert from '@/app/components/alert'
+import AlertHandler from '../components/alertHandler'
 import styles from '@/app/styles/page.module.css'
+import { getCookie, deleteCookie } from 'cookies-next';
+import clsx from 'clsx'
+import Swal from 'sweetalert2'
+import type { SweetAlertIcon } from 'sweetalert2'
 
 export default function page() {
-
-    // const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
-    //     'use server'
-    //     event.preventDefault()
-    //     const formData = new FormData(event.currentTarget)
-    //     const response = await fetch("/api/login", {
-    //         method: "POST",
-    //         body: formData
-    //     })
-    //     const data = await response.json()
-    //     console.log(data)
-    // }
-
-  return (
+    const [hasAlert, setHasAlert] = useState(false)
+    const alertHandler = async () => {
+        let getc = getCookie("alert")
+        try {
+            if (typeof(getc) == "string"){
+                let json = await (JSON.parse(getc))
+                let iconx: SweetAlertIcon
+                console.log(json.code)
+                switch (json.code){
+                    case 0:
+                        iconx = "success"
+                        break;
+                    case 1:
+                        iconx = "warning"
+                        break;
+                    default:
+                        iconx = "question"
+                }
+                console.log(JSON.parse(getc))
+                await Swal.fire({
+                    title: json.title,
+                    text: json.text,
+                    icon: iconx ,
+                    confirmButtonText: 'ok'
+                })
+                await deleteCookie('alert')
+            }
+        } catch (e){
+            console.log('errorrrr')
+            setHasAlert(false)
+        }
+    }
+    useEffect(()=>{
+        setInterval(()=>{alertHandler()}, 1000)
+    })
+    return (
     <main className={styles.main}>
+        {}
         <div className={styles.home}>
             <div className={styles.card}>
                 <h1>login</h1>
@@ -31,5 +62,5 @@ export default function page() {
             </div>
         </div>
     </main>
-  )
+    )
 }

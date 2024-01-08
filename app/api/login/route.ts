@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation"
 import login from "@/app/lib/login";
 
-import type UserLogin from "@/app/lib/types/dtypes";
+import type {UserLogin} from "@/app/lib/types/dtypes";
 
 export async function POST(req: Request) {
   const formData = await req.formData()
@@ -17,5 +17,5 @@ export async function POST(req: Request) {
   }
   console.log(loginStatus)
   // return Response.json({msg: await User.find({})})
-  redirect('/')
+  redirect('/login')
 }

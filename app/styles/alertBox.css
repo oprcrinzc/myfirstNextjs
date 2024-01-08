@@ -1,0 +1,65 @@
+.alertBox {
+  border-radius: 1rem;
+  position:absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: aliceblue;
+  /* padding: 1rem; */
+
+  font-size: large;
+
+  display: flex;
+  flex-direction: row;
+  /* gap: rem; */
+  align-self:self-start;
+}
+p {
+  font-size: 25px;
+}
+.alertBox > h1 {
+  font-weight: bolder;
+  font-family:monospace;
+  height: auto;
+}
+.alertBox > h1 {
+  /* backdrop-filter: brightness(40%); */
+  padding: 1rem;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+
+  flex-grow: 1;
+}
+
+.alertBox > .text {
+  padding: 1rem;
+}
+
+.bg-level-0 {
+  background-color: rgb(95, 221, 45);
+  color: rgb(54, 104, 14);
+  /* font-weight: ; */
+}
+.bg-level-0 > h1{
+  background-color: rgb(110, 255, 52);
+  color: rgb(16, 32, 3);
+}
+
+
+.bg-level-1 {
+  background-color: rgb(226, 208, 45);
+  color: rgb(95, 75, 18);
+}
+.bg-level-1 > h1 {
+  background-color: rgb(247, 227, 48);
+  color: rgb(100, 87, 15);
+}
+
+
+.bg-level-2 {
+  background-color: rgb(226, 41, 41);
+  color: rgb(102, 31, 31);
+}
+.bg-level-2 > h1{
+  background-color: rgb(250, 77, 77);
+  color: rgb(80, 19, 19);
+}
